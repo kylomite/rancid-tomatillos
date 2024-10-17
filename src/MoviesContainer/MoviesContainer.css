@@ -1,0 +1,26 @@
+.poster {
+    /* width: 200px;
+    height: 300px; */
+    /* margin: 15px;
+    border-radius: 8px; */
+    width: 200px;
+    height: 300px;
+    flex-basis: 200px; 
+    margin: 50px;
+}
+
+.vote-count{
+    text-align: center;
+    color: whitesmoke;
+}
+
+.movies-container {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 15px;
+    overflow: hidden;
+    /* padding: 20px; */
+    /* row-gap: 20px; */
+}
