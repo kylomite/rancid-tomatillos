@@ -14,12 +14,19 @@ function App() {
     setPosters(moviePosters);
   }, [] );
 
+  function changeVoteCountData(movieid) {
+    //if buttons class === upvote-button
+    //  moviePosters[movieid].vote_count += 1
+    //else
+    //  moviePosters[movieid].vote_count -= 1
+  }
+
   return (
     <main className='App'>
       <header>
         <h1>rancid tomatillos</h1>
       </header>
-      <MoviesContainer posters={ posters }/>
+      <MoviesContainer posters={ posters} changeVoteCountData={ changeVoteCountData }/>
     </main>
   );
 }
