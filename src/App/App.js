@@ -29,8 +29,12 @@ function App() {
     });
   }
 
-  function showMovieDetails() {
+  // function showMovieDetails(movie) {
+  //   setSelectedMovie(movie);
+  // };
 
+  const showMovieDetails = (movie) => {
+    setSelectedMovie(movie);
   }
 
   return (
@@ -38,9 +42,9 @@ function App() {
       <header>
         <h1>rancid tomatillos</h1>
       </header>
-      <MoviesContainer posters={ posters} changeVoteCountData={ changeVoteCountData }/>
+      <MoviesContainer posters={ posters} changeVoteCountData={ changeVoteCountData } changeView={ showMovieDetails }/>
       {/* conditionally show movie details */}
-      { !setSelectedMovie && <MovieDetails movie={ selectedMovie }/> }
+      {/* { !setSelectedMovie && <MovieDetails movie={ selectedMovie }/> } */}
     </main>
   );
 }
