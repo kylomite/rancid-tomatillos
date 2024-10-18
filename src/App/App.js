@@ -14,11 +14,18 @@ function App() {
     setPosters(moviePosters);
   }, [] );
 
-  function changeVoteCountData(movieid) {
-    //if buttons class === upvote-button
-    //  moviePosters[movieid].vote_count += 1
-    //else
-    //  moviePosters[movieid].vote_count -= 1
+  function changeVoteCountData(id, vote) {
+    setPosters((prevMoviePosters) => {
+      return prevMoviePosters.map((movie) => {
+        if (movie.id === id) {
+          return {
+            ...movie,
+            vote_count: vote === "up" ? movie.vote_count + 1 : movie.vote_count - 1
+          };
+        }
+        return movie;
+      });
+    });
   }
 
   return (

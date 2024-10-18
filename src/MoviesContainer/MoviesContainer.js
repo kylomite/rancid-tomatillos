@@ -9,6 +9,7 @@ function Movies({posters, changeVoteCountData}) {
         id={poster.id}
         poster_path={poster.poster_path}
         vote_count={poster.vote_count}
+        changeVoteCountData={ changeVoteCountData }
       />
     )
   })
