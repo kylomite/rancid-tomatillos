@@ -14,12 +14,26 @@ function App() {
     setPosters(moviePosters);
   }, [] );
 
+  function changeVoteCountData(id, vote) {
+    setPosters((prevMoviePosters) => {
+      return prevMoviePosters.map((movie) => {
+        if (movie.id === id) {
+          return {
+            ...movie,
+            vote_count: vote === "up" ? movie.vote_count + 1 : movie.vote_count - 1
+          };
+        }
+        return movie;
+      });
+    });
+  }
+
   return (
     <main className='App'>
       <header>
         <h1>rancid tomatillos</h1>
       </header>
-      <MoviesContainer posters={moviePosters}/>
+      <MoviesContainer posters={ posters} changeVoteCountData={ changeVoteCountData }/>
     </main>
   );
 }

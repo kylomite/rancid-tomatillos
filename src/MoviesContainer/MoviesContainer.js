@@ -1,15 +1,16 @@
 import './MoviesContainer.css';
+import MoviePoster from '../MoviePoster/MoviePoster';
 
-function Movies({posters}) {
-
+function Movies({posters, changeVoteCountData}) {
   const showPosters = posters.map(poster => {
     return (
-      <section class="poster" key={poster.id}>
-        <img className="poster-image" src={poster.poster_path} alt={'movie poster'}/>
-        <div className="vote-bar">
-          <div className="vote-count">{poster.vote_count}</div>
-        </div>
-      </section>
+      <MoviePoster
+        key={poster.id}
+        id={poster.id}
+        poster_path={poster.poster_path}
+        vote_count={poster.vote_count}
+        changeVoteCountData={ changeVoteCountData }
+      />
     )
   })
 
