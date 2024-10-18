@@ -1,7 +1,6 @@
 import './MoviesContainer.css';
 
 function Movies({posters}) {
-  // const { posters } = props;
 
   const showPosters = posters.map(poster => {
     return (
@@ -16,7 +15,6 @@ function Movies({posters}) {
 
   return (
       <section className='movies-container'>
-        {/* <p>We'll make some movie posters show up here!</p> */}
         {showPosters}
       </section>
   );
