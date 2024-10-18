@@ -1,19 +1,15 @@
 import './MoviesContainer.css';
-import upvote from "../icons/upvote.png";
-import downvote from "../icons/downvote.png";
+import MoviePoster from '../MoviePoster/MoviePoster';
 
 function Movies({posters}) {
-
   const showPosters = posters.map(poster => {
     return (
-      <section class="poster" key={poster.id}>
-        <img className="poster-image" src={poster.poster_path} alt={'movie poster'}/>
-        <div className="vote-bar">
-          <button className="vote-button"> <img src={upvote} alt="upvote"/> </button>
-          <div className="vote-count">{poster.vote_count}</div>
-          <button className="vote-button"> <img src={downvote} alt="downvote"/> </button>
-        </div>
-      </section>
+      <MoviePoster
+        key={poster.id}
+        id={poster.id}
+        poster_path={poster.poster_path}
+        vote_count={poster.vote_count}
+      />
     )
   })
 

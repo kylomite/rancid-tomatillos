@@ -19,7 +19,7 @@ function App() {
       <header>
         <h1>rancid tomatillos</h1>
       </header>
-      <MoviesContainer posters={moviePosters}/>
+      <MoviesContainer posters={ posters }/>
     </main>
   );
 }
