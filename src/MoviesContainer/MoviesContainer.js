@@ -1,7 +1,11 @@
 import './MoviesContainer.css';
 import MoviePoster from '../MoviePoster/MoviePoster';
+import MovieDetails from '../MovieDetails/MovieDetails';
 
-function Movies({posters, changeVoteCountData, changeView}) {
+function Movies(props) {
+
+  const {posters, changeVoteCountData, selectedMovie, onPosterSelect, onBackButton} = props
+
   const showPosters = posters.map(poster => {
     return (
       <MoviePoster
@@ -10,14 +14,21 @@ function Movies({posters, changeVoteCountData, changeView}) {
         poster_path={poster.poster_path}
         vote_count={poster.vote_count}
         changeVoteCountData={ changeVoteCountData }
-        onClick={ () => changeView(poster) } 
+        onPosterSelect={ () => onPosterSelect(poster) } 
       />
     )
   })
 
+  const showDetails = (
+    <MovieDetails
+      movie={selectedMovie}
+      onBackButton={onBackButton}
+    />
+  )
+
   return (
       <section className='movies-container'>
-        {showPosters}
+        { selectedMovie ? showDetails : showPosters }
       </section>
   );
 }
