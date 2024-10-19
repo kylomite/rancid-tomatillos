@@ -33,6 +33,7 @@ function App() {
     console.log("showMovieDetails CLICK!")
     // setSelectedMovie(movie);
     setSelectedMovie(movieDetails);
+    // ^ hardcoding Spirited Away movie details
   };
 
   function showMoviePosters() {
