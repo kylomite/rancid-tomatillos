@@ -7,10 +7,18 @@
 }
 
 .home-button {
+  width: 60px;
+  height: 60px;
+  margin: 25px;
   position: absolute;
   top: 0;
   right: 0;
-  padding: 23px;
+  transition: transform .2s ease-in-out;
+}
+
+.home-button:hover{
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .movie-details {
