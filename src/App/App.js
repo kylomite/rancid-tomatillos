@@ -4,11 +4,12 @@ import searchIcon from '../icons/search.png';
 // Example imports (for later):
 import { useState, useEffect } from 'react';
 import moviePosters from '../data/movie_posters';
-// import movieDetails from '../data/movie_details';
+import movieDetails from '../data/movie_details';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 
 function App() {
   const [posters, setPosters] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect( () => {
     setPosters(moviePosters);
@@ -28,12 +29,30 @@ function App() {
     });
   }
 
+  function showMovieDetails(movie) {
+    console.log("showMovieDetails CLICK!")
+    // setSelectedMovie(movie);
+    setSelectedMovie(movieDetails);
+    // ^ hardcoding Spirited Away movie details
+  };
+
+  function showMoviePosters() {
+    console.log("showMoviePosters CLICK!")
+    setSelectedMovie(null);
+  }
+
   return (
     <main className='App'>
       <header>
         <h1>rancid tomatillos</h1>
       </header>
-      <MoviesContainer posters={ posters} changeVoteCountData={ changeVoteCountData }/>
+      <MoviesContainer
+        posters={ posters}
+        changeVoteCountData={ changeVoteCountData }
+        selectedMovie={ selectedMovie }
+        onPosterSelect={ showMovieDetails }
+        onBackButton={ showMoviePosters }
+      />
     </main>
   );
 }
