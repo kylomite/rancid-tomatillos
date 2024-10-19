@@ -15,7 +15,6 @@ function MovieDetails({ movie, onBackButton }) {
 
   return (
     <section className='movie-details-view'>
-      <p>Movie Details go here!</p>
       <img
         className='home-button'
         src={homeIcon}
