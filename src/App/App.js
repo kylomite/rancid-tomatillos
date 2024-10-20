@@ -12,7 +12,10 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect( () => {
-    setPosters(moviePosters);
+    // setPosters(moviePosters);
+    fetch("https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies")
+    .then(response => response.json())
+    .then(moviesList => setPosters(moviesList));
   }, [] );
 
   function changeVoteCountData(id, vote) {
