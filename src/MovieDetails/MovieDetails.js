@@ -15,7 +15,6 @@ function MovieDetails({ movie, onBackButton }) {
 
   return (
     <section className='movie-details-view'>
-      <p>Movie Details go here!</p>
       <img
         className='home-button'
         src={homeIcon}
@@ -33,8 +32,8 @@ function MovieDetails({ movie, onBackButton }) {
           <div className='genres'>
             {movieGenres}
           </div>
+          <p className='description'>{movie.overview}</p>
         </section>
-        <p className='description'>{movie.overview}</p>
       </section>
     </section>
   );

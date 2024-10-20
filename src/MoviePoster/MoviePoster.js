@@ -1,9 +1,14 @@
 import './MoviePoster.css';
-import { useState } from 'react';
 import upvote from "../icons/upvote.png";
 import downvote from "../icons/downvote.png";
 
-const MoviePoster = ({ id, poster_path, vote_count, changeVoteCountData, onPosterSelect }) => {
+const MoviePoster = ({ 
+  id, 
+  poster_path, 
+  vote_count, 
+  changeVoteCountData, 
+  onPosterSelect 
+}) => {
 
   return (
     <section className='poster' key={id}>

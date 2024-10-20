@@ -3,25 +3,27 @@
     flex-direction: column;
     text-align: space-evenly;
     width: 200px;
-    height: 300px;
+    height: 325px;
     flex-basis: 200px; 
     margin: 50px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+    transition: transform .2s ease-in-out;
 }
 
 .poster-image {
     width: 100%;
     height: 280px;
     object-fit: cover;
-    border-radius: 8px 8px 0 0;
 }
 
 .vote-bar {
+    height: 25px;
     width: 100%;
     background-color: whitesmoke;
     padding: 10px 0;
     text-align: center;
-    border-radius: 0 0 8px 8px;
     display: flex;
     justify-content: center;
 }
@@ -33,6 +35,7 @@
     font-weight: bold;
     background-color: whitesmoke;
     margin: 0px 15px;
+    
 }
 
 .poster:hover {
