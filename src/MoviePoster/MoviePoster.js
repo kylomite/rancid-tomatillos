@@ -8,7 +8,7 @@ const MoviePoster = ({
   vote_count, 
   changeVoteCountData, 
   onPosterSelect 
-}) => {
+  }) => {
 
   return (
     <section className='poster' key={id}>
