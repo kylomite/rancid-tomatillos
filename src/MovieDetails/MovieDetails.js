@@ -32,8 +32,8 @@ function MovieDetails({ movie, onBackButton }) {
           <div className='genres'>
             {movieGenres}
           </div>
+          <p className='description'>{movie.overview}</p>
         </section>
-        <p className='description'>{movie.overview}</p>
       </section>
     </section>
   );
