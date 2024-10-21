@@ -12,27 +12,85 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect( () => {
-    setPosters(moviePosters);
+    fetch("https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies")
+    .then(response => response.json())
+    .then(moviesList => setPosters(moviesList));
   }, [] );
 
   function changeVoteCountData(id, vote) {
-    setPosters((prevMoviePosters) => {
-      return prevMoviePosters.map((movie) => {
-        if (movie.id === id) {
-          return {
-            ...movie,
-            vote_count: vote === "up" ? movie.vote_count + 1 : movie.vote_count - 1
-          };
-        }
-        return movie;
+    fetch(`https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: `${id}`,
+        vote_direction: `${vote}`
+      })
+    })
+    .then(response => response.json())
+    .then(specificMovie => {
+      setPosters((prevMoviePosters) => {
+        return prevMoviePosters.map((movie) => {
+          if (movie.id === specificMovie.id) {
+            return specificMovie;
+          }
+          return movie;
+        });
       });
-    });
-  }
+    })
+    .catch(error => alert(error));
+    // setPosters((prevMoviePosters) => {
+    //   return prevMoviePosters.map((movie) => {
+    //     if (movie.id === id) {
+    //       return {
+    //         ...movie,
+    //         vote_count: vote === "up" ? movie.vote_count + 1 : movie.vote_count - 1
+    //       };
+    //     }
+    //     return movie;
+    //   });
+    // });
+    // console.log(vote, "<-> vote")
+    // let voteDirection = vote
+    // console.log(voteDirection, "<-> voteDirection")
+
+      // return moviePosters.map((movie) => {
+      //   if (movie.id === id) {
+      //     console.log(movie.vote_count)
+      //     fetch(`https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/${id}`, {
+      //       method: "PATCH",
+      //       headers: {"Content-Type": "application/json"},
+      //       body: JSON.stringify({
+      //         id: `${id}`,
+      //         vote_direction: `${vote}`
+      //       })
+      //     })
+      //     .then(response => response.json())
+      //     .then(specificMovie => {
+      //       setPosters( (prevMoviePosters) => {
+      //        return prevMoviePosters.map( (movie) => {
+      //         if (movie.id === specificMovie.id) {
+      //           console.log(moviePosters, "<-- updated posters")
+      //           return specificMovie
+      //         } else {
+      //          return movie
+      //         }
+      //        })
+      //       })
+      //     })
+      //     .catch(error => alert(error));
+      //   }
+      //   return movie;
+      // })
+    }
 
   function showMovieDetails(movie) {
+    console.log(movie)
+    fetch(`https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/${movie.id}`)
+    .then(response => response.json())
+    .then(specificMovieDetails => setSelectedMovie(specificMovieDetails));
     console.log("showMovieDetails CLICK!")
     // setSelectedMovie(movie);
-    setSelectedMovie(movieDetails);
+    // setSelectedMovie(movieDetails);
     // ^ hardcoding Spirited Away movie details
   };
 

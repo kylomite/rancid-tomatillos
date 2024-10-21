@@ -8,7 +8,7 @@ const MoviePoster = ({
   vote_count, 
   changeVoteCountData, 
   onPosterSelect 
-}) => {
+  }) => {
 
   return (
     <section className='poster' key={id}>
@@ -16,7 +16,7 @@ const MoviePoster = ({
         className="poster-image"
         src={poster_path}
         alt={'movie poster'}
-        onClick={onPosterSelect}
+        onClick={() => onPosterSelect(id)}
       />
       <div className="vote-bar">
         <button className="upvote-button"
