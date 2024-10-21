@@ -12,7 +12,6 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect( () => {
-    // setPosters(moviePosters);
     fetch("https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies")
     .then(response => response.json())
     .then(moviesList => setPosters(moviesList));
@@ -85,9 +84,13 @@ function App() {
     }
 
   function showMovieDetails(movie) {
+    console.log(movie)
+    fetch(`https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/${movie.id}`)
+    .then(response => response.json())
+    .then(specificMovieDetails => setSelectedMovie(specificMovieDetails));
     console.log("showMovieDetails CLICK!")
     // setSelectedMovie(movie);
-    setSelectedMovie(movie);
+    // setSelectedMovie(movieDetails);
     // ^ hardcoding Spirited Away movie details
   };
 
