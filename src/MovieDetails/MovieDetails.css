@@ -53,12 +53,10 @@
 
 .genre-tag {
   border-radius: 8px;
-  height: 31px;
-  width: 92px;
   text-align: center;
   background-color: #97c2ec;
   margin: 10px;
-  padding: 6px 0 0 0;
+  padding: 6px;
 }
 .description {
   width: 100%;
