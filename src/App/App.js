@@ -19,6 +19,26 @@ function App() {
   }, [] );
 
   function changeVoteCountData(id, vote) {
+    fetch(`https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: `${id}`,
+        vote_direction: `${vote}`
+      })
+    })
+    .then(response => response.json())
+    .then(specificMovie => {
+      setPosters((prevMoviePosters) => {
+        return prevMoviePosters.map((movie) => {
+          if (movie.id === specificMovie.id) {
+            return specificMovie;
+          }
+          return movie;
+        });
+      });
+    })
+    .catch(error => alert(error));
     // setPosters((prevMoviePosters) => {
     //   return prevMoviePosters.map((movie) => {
     //     if (movie.id === id) {
@@ -30,47 +50,40 @@ function App() {
     //     return movie;
     //   });
     // });
-    console.log(vote, "<-> vote")
+    // console.log(vote, "<-> vote")
     // let voteDirection = vote
     // console.log(voteDirection, "<-> voteDirection")
 
-    setPosters((prevMoviePosters) => {
-      return prevMoviePosters.map((movie) => {
-        if (movie.id === id) {
-          console.log(movie.vote_count)
-          fetch(`https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/${id}`, {
-            method: "PATCH",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-              id: `${id}`,
-              vote_direction: `${vote}`
-              // vote_direction: `${voteDirection}`
-            })
-          })
-          .then(response => response.json())
-          .then(specificMovie => {
-            console.log(specificMovie, '<-> specificMovie')
-            setPosters( (prevMoviePosters) => {
+      // return moviePosters.map((movie) => {
+      //   if (movie.id === id) {
+      //     console.log(movie.vote_count)
+      //     fetch(`https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/${id}`, {
+      //       method: "PATCH",
+      //       headers: {"Content-Type": "application/json"},
+      //       body: JSON.stringify({
+      //         id: `${id}`,
+      //         vote_direction: `${vote}`
+      //       })
+      //     })
+      //     .then(response => response.json())
+      //     .then(specificMovie => {
+      //       setPosters( (prevMoviePosters) => {
+      //        return prevMoviePosters.map( (movie) => {
+      //         if (movie.id === specificMovie.id) {
+      //           console.log(moviePosters, "<-- updated posters")
+      //           return specificMovie
+      //         } else {
+      //          return movie
+      //         }
+      //        })
+      //       })
+      //     })
+      //     .catch(error => alert(error));
+      //   }
+      //   return movie;
+      // })
+    }
 
-              console.log(prevMoviePosters, '<-> prevMoviePosters')
-             return prevMoviePosters.map( (movie) => {
-              if (movie.id === specificMovie.id) {
-                return specificMovie
-              } else {
-               return movie
-              }
-             })
-
-            })
-          })
-          .catch(error => alert(error));
-        }
-        // console.log(movie.id, '<-> movie.id')
-        return movie;
-      })
-    })
-  }
-uijj
   function showMovieDetails(movie) {
     console.log("showMovieDetails CLICK!")
     // setSelectedMovie(movie);
