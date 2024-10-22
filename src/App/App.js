@@ -92,6 +92,7 @@ function App() {
     // setSelectedMovie(movie);
     // setSelectedMovie(movieDetails);
     // ^ hardcoding Spirited Away movie details
+    .catch(error => alert(error));
   };
 
   function showMoviePosters() {
