@@ -14,7 +14,8 @@ describe('main page spec', () => {
 
   it('displays movie details', () => {
     // ROOM FOR ROUTING TEST
-    cy.get('.home-button').should('exist')
+    cy.get('h1').should('contain', 'rancid tomatillos')
+    .get('.home-button').should('exist')
     .get('.movie-backdrop').should('exist')
     .get('.title').should('contain', 'The Dark Knight')
     .get('.genre-tag').last().should('contain', 'Thriller')
@@ -26,6 +27,18 @@ describe('main page spec', () => {
   })
 
   it('returns to main view when clicking homebutton', () => {
-
+    cy.get('.home-button').click({force: true})
+    // ROOM FOR ROUTING TEST
+    cy.get('h1').should('contain', 'rancid tomatillos')
+    .get('.movies-container').should('exist')
+    .get('.poster').should('have.length', 4)
+    .get('.poster').first().find('img').should('exist')
+    .get('.poster').first().find('div [class="vote-count"]').should('exist')
+    .get('.poster').first().find('div [class="upvote-button"]').should('exist')
+    .get('.poster').first().find('div [class="downvote-button"]').should('exist')
+    .get('.poster').last().find('img').should('exist')
+    .get('.poster').last().find('div [class="vote-count"]').should('exist')
+    .get('.poster').last().find('div [class="upvote-button"]').should('exist')
+    .get('.poster').last().find('div [class="downvote-button"]').should('exist')
   })
 })
