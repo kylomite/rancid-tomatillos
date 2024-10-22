@@ -4,7 +4,6 @@ import searchIcon from '../icons/search.png';
 // Example imports (for later):
 import { useState, useEffect } from 'react';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
-import MovieDetails from '../MovieDetails/MovieDetails';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
