@@ -37,7 +37,7 @@ function App() {
         });
       });
     })
-    .catch(error => alert(error));
+    .catch(error => alert("Oops something went wrong... Try again later"));
   };
 
   function showMovieDetails(movie) {
