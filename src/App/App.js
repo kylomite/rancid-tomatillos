@@ -71,17 +71,9 @@ function App() {
               selectedMovie={ selectedMovie }
               onPosterSelect={ showMovieDetails }
               onBackButton={ showMoviePosters }
-            />
-          }/>
-          <Route path='/movie/:id' element={
-            <MoviesContainer
-              posters={ posters}
-              changeVoteCountData={ changeVoteCountData }
-              selectedMovie={ selectedMovie }
-              onPosterSelect={ showMovieDetails }
-              onBackButton={ showMoviePosters }
-            />
-          }/>
+            />}>
+            <Route path='/movie/:id'/>
+          </Route>
         </Routes>
     </main>
   );

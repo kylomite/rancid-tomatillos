@@ -1,6 +1,6 @@
 import './MovieDetails.css';
 import homeIcon from '../icons/home.png';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function MovieDetails({ movie, onBackButton }) {
   const { id } = useParams()
@@ -17,12 +17,14 @@ function MovieDetails({ movie, onBackButton }) {
 
   return (
     <section className='movie-details-view'>
-      <img
-        className='home-button'
-        src={homeIcon}
-        alt={'return to home button'}
-        onClick={onBackButton}
-      />
+      <Link to={`/`}>
+        <img
+          className='home-button'
+          src={homeIcon}
+          alt={'return to home button'}
+          onClick={onBackButton}
+        />
+      </Link>
       <section className={'movie-details'}>
         <img
           className='movie-backdrop'
