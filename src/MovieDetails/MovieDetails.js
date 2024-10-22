@@ -12,8 +12,6 @@ function MovieDetails({ movie, onBackButton }) {
         <p className='genre-tag'>{genre}</p>
     )
   })
-  // ^ here I am trying to dynamically render the movie genres
-  // in case movies have differing amounts of genres
 
   return (
     <section className='movie-details-view'>

@@ -27,12 +27,9 @@ function Movies(props) {
   )
 
   return (
-      <section className='movies-container'>
-        { selectedMovie ? showDetails : showPosters }
-        {/* ^ here we are checking to see if the selectedMovie value is null or truthy
-          if the value is null = poster view will display
-          if the value is a movie = the movie details view will display */}
-      </section>
+    <section className='movies-container'>
+      { selectedMovie ? showDetails : showPosters }
+    </section>
   );
 }
   

@@ -10,6 +10,7 @@ const MoviePoster = ({
   changeVoteCountData, 
   onPosterSelect 
   }) => {
+    
   return (
     <section className='poster' key={id}>
       <Link to={`/movie/${id}`}>

@@ -48,9 +48,6 @@ function App() {
     .then(specificMovieDetails => setSelectedMovie(specificMovieDetails))
     .catch(() => alert("Oops something went wrong... Try again later"));
     console.log("showMovieDetails CLICK!")
-    // setSelectedMovie(movie);
-    // setSelectedMovie(movieDetails);
-    // ^ hardcoding Spirited Away movie details
   };
 
   function showMoviePosters() {
