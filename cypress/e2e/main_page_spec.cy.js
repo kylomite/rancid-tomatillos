@@ -9,7 +9,7 @@ describe('main page spec', () => {
   it('shows the main page', () => {
     cy.get('h1').should('contain', 'rancid tomatillos')
     .get('.movies-container').should('exist')
-    .get('.poster').should('have.length', 4)
+    .get('.poster').should('have.length', 5)
     .get('.poster').first().find('img').should('exist')
     .get('.poster').first().find('div [class="vote-count"]').should('exist')
     .get('.poster').first().find('div [class="upvote-button"]').should('exist')
