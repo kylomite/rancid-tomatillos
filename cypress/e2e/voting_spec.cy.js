@@ -1,4 +1,3 @@
-// As a user, when I upvote a movie, I see the movie’s votes increase by one.
 describe('Voting', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
