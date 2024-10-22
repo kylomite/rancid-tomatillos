@@ -50,7 +50,7 @@ describe('main page spec', () => {
 
   it('shows error message when network request is unsuccessful', () => {
     cy.intercept('GET', 'https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/155', {
-      statusCode: 404
+      statusCode: 500
     })
     cy.get('.poster').first().click()
     cy.on('window:alert', (text) => {expect(text).to.eq('Oops something went wrong... Try again later')})

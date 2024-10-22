@@ -1,4 +1,3 @@
-// As a user, when I upvote a movie, I see the movie’s votes increase by one.
 describe('Voting', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
@@ -10,16 +9,15 @@ describe('Voting', () => {
   });
 
   it('increases the vote count when clicking the upvote button', () => {
-    cy.intercept('PATCH', 'https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/372058', {
-      statusCode: 200,
-      body: {
-        "id": 372058,
-        "poster_path": "https://image.tmdb.org/t/p/original//vfJFJPepRKapMd5G2ro7klIRysq.jpg",
-        "title": "Your Name.",
-        "vote_count": 11243
-      }
-    }).as('posterVote');
+    cy.fixture('movie_posters').then(movies => {
+      const lastMovie = movies[movies.length - 1]
+      const upvotedMovie = {...lastMovie, vote_count: '11243'}
 
+      cy.intercept('PATCH', 'https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/372058', {
+        statusCode: 200,
+        body: upvotedMovie
+      }).as('posterVote');
+    })
     cy.get(':nth-child(5) > .vote-bar > .vote-count').should('have.text', '11242')
     cy.get(':nth-child(5) > .vote-bar > .upvote-button').click()
     cy.wait('@posterVote')
@@ -31,16 +29,15 @@ describe('Voting', () => {
   });
 
   it('decreases the vote count when clicking the downvote button', () => {
-    cy.intercept('PATCH', 'https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/372058', {
-      statusCode: 200,
-      body: {
-        "id": 372058,
-        "poster_path": "https://image.tmdb.org/t/p/original//vfJFJPepRKapMd5G2ro7klIRysq.jpg",
-        "title": "Your Name.",
-        "vote_count": 11241
-      }
-    }).as('posterVote')
+    cy.fixture('movie_posters').then(movies => {
+      const lastMovie = movies[movies.length - 1]
+      const upvotedMovie = {...lastMovie, vote_count: '11241'}
 
+      cy.intercept('PATCH', 'https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/372058', {
+        statusCode: 200,
+        body: upvotedMovie
+      }).as('posterVote');
+    })
     cy.get(':nth-child(5) > .vote-bar > .vote-count').should('have.text', '11242')
     cy.get(':nth-child(5) > .vote-bar > .downvote-button').click()
     cy.wait('@posterVote')
@@ -52,7 +49,6 @@ describe('Voting', () => {
   });
 });
 
-
 describe('Voting Sad Paths', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
@@ -61,7 +57,7 @@ describe('Voting Sad Paths', () => {
       fixture: 'movie_posters'
     });
     cy.intercept('PATCH', 'https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/372058', {
-      statusCode: 400,
+      statusCode: 500,
       body: {
         "message": "Oops something went wrong... Try again later"
       }
@@ -72,7 +68,7 @@ describe('Voting Sad Paths', () => {
     cy.get(':nth-child(5) > .vote-bar > .vote-count').should('have.text', '11242')
     cy.get(':nth-child(5) > .vote-bar > .upvote-button').click()
     cy.wait('@failedVote')
-    cy.get('@failedVote').its('response.statusCode').should('eq', 400)
+    cy.get('@failedVote').its('response.statusCode').should('eq', 500)
     cy.on('window:alert', (text) => {
       expect(text).to.eq('Oops something went wrong... Try again later')
     })
@@ -83,7 +79,7 @@ describe('Voting Sad Paths', () => {
     cy.get(':nth-child(5) > .vote-bar > .vote-count').should('have.text', '11242')
     cy.get(':nth-child(5) > .vote-bar > .downvote-button').click()
     cy.wait('@failedVote')
-    cy.get('@failedVote').its('response.statusCode').should('eq', 400)
+    cy.get('@failedVote').its('response.statusCode').should('eq', 500)
     cy.on('window:alert', (text) => {
       expect(text).to.eq('Oops something went wrong... Try again later')
     })
