@@ -45,7 +45,8 @@ function App() {
     console.log(movie)
     fetch(`https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/${movie.id}`)
     .then(response => response.json())
-    .then(specificMovieDetails => setSelectedMovie(specificMovieDetails));
+    .then(specificMovieDetails => setSelectedMovie(specificMovieDetails))
+    .catch(() => alert("Oops something went wrong... Try again later"));
     console.log("showMovieDetails CLICK!")
     // setSelectedMovie(movie);
     // setSelectedMovie(movieDetails);
