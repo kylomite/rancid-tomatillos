@@ -38,50 +38,7 @@ function App() {
       });
     })
     .catch(error => alert(error));
-    // setPosters((prevMoviePosters) => {
-    //   return prevMoviePosters.map((movie) => {
-    //     if (movie.id === id) {
-    //       return {
-    //         ...movie,
-    //         vote_count: vote === "up" ? movie.vote_count + 1 : movie.vote_count - 1
-    //       };
-    //     }
-    //     return movie;
-    //   });
-    // });
-    // console.log(vote, "<-> vote")
-    // let voteDirection = vote
-    // console.log(voteDirection, "<-> voteDirection")
-
-      // return moviePosters.map((movie) => {
-      //   if (movie.id === id) {
-      //     console.log(movie.vote_count)
-      //     fetch(`https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/${id}`, {
-      //       method: "PATCH",
-      //       headers: {"Content-Type": "application/json"},
-      //       body: JSON.stringify({
-      //         id: `${id}`,
-      //         vote_direction: `${vote}`
-      //       })
-      //     })
-      //     .then(response => response.json())
-      //     .then(specificMovie => {
-      //       setPosters( (prevMoviePosters) => {
-      //        return prevMoviePosters.map( (movie) => {
-      //         if (movie.id === specificMovie.id) {
-      //           console.log(moviePosters, "<-- updated posters")
-      //           return specificMovie
-      //         } else {
-      //          return movie
-      //         }
-      //        })
-      //       })
-      //     })
-      //     .catch(error => alert(error));
-      //   }
-      //   return movie;
-      // })
-    }
+  };
 
   function showMovieDetails(movie) {
     console.log(movie)
@@ -97,7 +54,7 @@ function App() {
   function showMoviePosters() {
     console.log("showMoviePosters CLICK!")
     setSelectedMovie(null);
-  }
+  };
 
   return (
     <main className='App'>
