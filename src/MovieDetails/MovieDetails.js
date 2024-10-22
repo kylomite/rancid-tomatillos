@@ -1,8 +1,10 @@
 import './MovieDetails.css';
 import homeIcon from '../icons/home.png';
+import { useParams } from 'react-router-dom';
 
 function MovieDetails({ movie, onBackButton }) {
-  console.log(movie, "<-> movie")
+  const { id } = useParams()
+  console.log(useParams(), "<-> movie")
 
   const movieGenres = movie.genre_ids.map(genre => {
     console.log(genre)

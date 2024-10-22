@@ -1,6 +1,7 @@
 import './MoviePoster.css';
 import upvote from "../icons/upvote.png";
 import downvote from "../icons/downvote.png";
+import { useParams, Link } from 'react-router-dom';
 
 const MoviePoster = ({ 
   id, 
@@ -9,15 +10,16 @@ const MoviePoster = ({
   changeVoteCountData, 
   onPosterSelect 
   }) => {
-
   return (
     <section className='poster' key={id}>
-      <img
-        className="poster-image"
-        src={poster_path}
-        alt={'movie poster'}
-        onClick={() => onPosterSelect(id)}
-      />
+      <Link to={`/movie/${id}`}>
+        <img
+          className="poster-image"
+          src={poster_path}
+          alt={'movie poster'}
+          onClick={() => onPosterSelect(id)}
+        />
+      </Link>
       <div className="vote-bar">
         <button className="upvote-button"
         onClick={()=> changeVoteCountData(id, "up")}> 
