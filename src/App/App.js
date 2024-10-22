@@ -15,7 +15,7 @@ function App() {
     fetch("https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies")
     .then(response => response.json())
     .then(moviesList => setPosters(moviesList))
-    // .catch(error => alert("Oops something went wrong... Try again later"));
+    .catch(() => alert("Oops something went wrong... Try again later"));
   }, [] );
 
   function changeVoteCountData(id, vote) {
