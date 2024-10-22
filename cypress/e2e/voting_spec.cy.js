@@ -49,7 +49,6 @@ describe('Voting', () => {
   });
 });
 
-
 describe('Voting Sad Paths', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
@@ -58,7 +57,7 @@ describe('Voting Sad Paths', () => {
       fixture: 'movie_posters'
     });
     cy.intercept('PATCH', 'https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/372058', {
-      statusCode: 400,
+      statusCode: 500,
       body: {
         "message": "Oops something went wrong... Try again later"
       }
@@ -69,7 +68,7 @@ describe('Voting Sad Paths', () => {
     cy.get(':nth-child(5) > .vote-bar > .vote-count').should('have.text', '11242')
     cy.get(':nth-child(5) > .vote-bar > .upvote-button').click()
     cy.wait('@failedVote')
-    cy.get('@failedVote').its('response.statusCode').should('eq', 400)
+    cy.get('@failedVote').its('response.statusCode').should('eq', 500)
     cy.on('window:alert', (text) => {
       expect(text).to.eq('Oops something went wrong... Try again later')
     })
@@ -80,7 +79,7 @@ describe('Voting Sad Paths', () => {
     cy.get(':nth-child(5) > .vote-bar > .vote-count').should('have.text', '11242')
     cy.get(':nth-child(5) > .vote-bar > .downvote-button').click()
     cy.wait('@failedVote')
-    cy.get('@failedVote').its('response.statusCode').should('eq', 400)
+    cy.get('@failedVote').its('response.statusCode').should('eq', 500)
     cy.on('window:alert', (text) => {
       expect(text).to.eq('Oops something went wrong... Try again later')
     })
