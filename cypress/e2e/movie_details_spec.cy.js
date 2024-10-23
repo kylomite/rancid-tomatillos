@@ -13,7 +13,7 @@ describe('main page spec', () => {
       fixture: 'movie_details'
     })
     cy.get('.poster').first().click()
-    // ROOM FOR ROUTING TEST
+    cy.url().should('include', '/movie/155')
     cy.get('h1').should('contain', 'rancid tomatillos')
     .get('.home-button').should('exist')
     .get('.movie-backdrop').should('exist')
@@ -34,7 +34,7 @@ describe('main page spec', () => {
 
     cy.get('.poster').first().click()
     cy.get('.home-button').click({force: true})
-    // ROOM FOR ROUTING TEST
+    cy.url().should('include', '/')
     cy.get('h1').should('contain', 'rancid tomatillos')
     .get('.movies-container').should('exist')
     .get('.poster').should('have.length', 5)
