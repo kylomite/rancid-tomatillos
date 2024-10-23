@@ -1,8 +1,10 @@
 import './MovieDetails.css';
 import homeIcon from '../icons/home.png';
+import { useParams, Link } from 'react-router-dom';
 
 function MovieDetails({ movie, onBackButton }) {
-  console.log(movie, "<-> movie")
+  const { id } = useParams()
+  console.log(useParams(), "<-> movie")
 
   const movieGenres = movie.genre_ids.map(genre => {
     console.log(genre)
@@ -10,17 +12,17 @@ function MovieDetails({ movie, onBackButton }) {
         <p className='genre-tag'>{genre}</p>
     )
   })
-  // ^ here I am trying to dynamically render the movie genres
-  // in case movies have differing amounts of genres
 
   return (
     <section className='movie-details-view'>
-      <img
-        className='home-button'
-        src={homeIcon}
-        alt={'return to home button'}
-        onClick={onBackButton}
-      />
+      <Link to={`/`}>
+        <img
+          className='home-button'
+          src={homeIcon}
+          alt={'return to home button'}
+          onClick={onBackButton}
+        />
+      </Link>
       <section className={'movie-details'}>
         <img
           className='movie-backdrop'
