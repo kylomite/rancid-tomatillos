@@ -7,6 +7,7 @@ describe('main page spec', () => {
     })
   })
   it('shows the main page', () => {
+    cy.url().should('include', '/')
     cy.get('h1').should('contain', 'rancid tomatillos')
     .get('.movies-container').should('exist')
     .get('.poster').should('have.length', 5)
