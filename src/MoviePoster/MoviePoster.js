@@ -1,6 +1,6 @@
 import './MoviePoster.css';
-import upvote from "../icons/upvote.png";
-import downvote from "../icons/downvote.png";
+import tomato from "../icons/tomato.png";
+import splat from "../icons/splat.png";
 import { useParams, Link } from 'react-router-dom';
 
 const MoviePoster = ({ 
@@ -24,12 +24,13 @@ const MoviePoster = ({
       <div className="vote-bar">
         <button className="upvote-button"
         onClick={()=> changeVoteCountData(id, "up")}> 
-          <img src={upvote} alt="upvote"/> 
+          {/* <img src={upvote} alt="upvote"/>  */}
+          <img src={tomato} alt="Upvote Tomato"></img>
         </button>
         <div className="vote-count">{vote_count}</div>
         <button className="downvote-button"
         onClick={()=> changeVoteCountData(id, "down")}>
-          <img src={downvote} alt="downvote"/> 
+          <img src={splat} alt="Downvote Splat"></img>
         </button>
       </div>
     </section>
