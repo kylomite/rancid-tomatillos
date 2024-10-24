@@ -62,6 +62,7 @@ function App() {
 
   // searching function
   function searchMovieList(event) {
+    // event.preventDefault()
     const search = event.target.value
     setMovieSearch(search);
     // ^ here we are updating the search state
@@ -75,22 +76,24 @@ function App() {
     }   
   };
 
-
+  const searchBar = (
+    <form onSubmit={(event) => event.preventDefault()}>
+      <img className='search-icon' src={searchIcon} alt='search icon'/>
+      <input
+        type="search"
+        id="site-search"
+        placeholder='  Start typing here...'
+        value={movieSearch}
+        onChange={searchMovieList}
+      />
+    </form>
+  )
 
   return (
     <main className='App'>
       <header>
         <h1>rancid tomatillos</h1>
-        <form>
-          <img className='search-icon' src={searchIcon} alt='search icon'/>
-          <input
-            type="search"
-            id="site-search"
-            placeholder='  Start typing here...'
-            value={movieSearch}
-            onChange={searchMovieList}
-          />
-        </form>
+        { selectedMovie === null && searchBar }
       </header>
         <Routes>
           <Route path='/' element={
