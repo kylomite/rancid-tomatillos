@@ -1,7 +1,5 @@
 import './App.css';
 import searchIcon from '../icons/search.png';
-
-// Example imports (for later):
 import { useState, useEffect } from 'react';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import { Routes, Route } from 'react-router-dom';
@@ -12,7 +10,6 @@ function App() {
   // ^ Used to keep hold of the original fetched state
   // for reloading the all posters when search bar is cleared
   const [selectedMovie, setSelectedMovie] = useState(null);
-
   // live search
   const [movieSearch, setMovieSearch] = useState("");
 
