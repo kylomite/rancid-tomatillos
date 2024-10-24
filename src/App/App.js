@@ -1,19 +1,25 @@
 import './App.css';
 import searchIcon from '../icons/search.png';
-
-// Example imports (for later):
 import { useState, useEffect } from 'react';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
   const [posters, setPosters] = useState([]);
+  const [allPosters, setAllPosters] = useState([]);
+  // ^ Used to keep hold of the original fetched state
+  // for reloading the all posters when search bar is cleared
   const [selectedMovie, setSelectedMovie] = useState(null);
+  // live search
+  const [movieSearch, setMovieSearch] = useState("");
 
   useEffect( () => {
     fetch("https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies")
     .then(response => response.json())
-    .then(moviesList => setPosters(moviesList))
+    .then(moviesList => {
+      setPosters(moviesList);
+      setAllPosters(moviesList);
+    })
     .catch(() => alert("Oops something went wrong... Try again later"));
   }, [] );
 
@@ -54,15 +60,42 @@ function App() {
     setSelectedMovie(null);
   };
 
+  // searching function
+  function searchMovieList(event) {
+    const search = event.target.value
+    setMovieSearch(search);
+    // ^ here we are updating the search state
+    if (search === "") {
+      setPosters(allPosters)
+    } else {
+      const filteredMovies = allPosters.filter(poster => {
+        return poster.title.toLowerCase().includes(search.toLowerCase())
+      })
+      setPosters(filteredMovies)
+    }   
+  };
+
+
+
   return (
     <main className='App'>
       <header>
         <h1>rancid tomatillos</h1>
+        <form>
+          <img className='search-icon' src={searchIcon} alt='search icon'/>
+          <input
+            type="search"
+            id="site-search"
+            placeholder='  Start typing here...'
+            value={movieSearch}
+            onChange={searchMovieList}
+          />
+        </form>
       </header>
         <Routes>
           <Route path='/' element={
             <MoviesContainer
-              posters={ posters}
+              posters={ posters }
               changeVoteCountData={ changeVoteCountData }
               selectedMovie={ selectedMovie }
               onPosterSelect={ showMovieDetails }
