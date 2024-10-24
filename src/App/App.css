@@ -23,7 +23,6 @@ h1 {
 form {
   display: flex;
   justify-content: space-evenly;
-  /* border: 2px solid blue; */
   background-color: #97c2ec;
   padding: 7px;
   border-radius: 20px;
@@ -39,9 +38,3 @@ input {
   border-radius: 5px;
   margin-left: 3px;
 }
-/* p {
-  font-size: 20px;
-  text-align: center;
-  margin-top: 50px;
-  color: white;
-} */
