@@ -1,14 +1,60 @@
-# Rancid Tomatillos - Starter Repo
+# Rancid Tomatillos
 
-## [The project spec for Rancid Tomatillos can be found here.](https://curriculum.turing.edu/module3/projects/rancid-tomatillos)
+Definitely not Rotten Tomatoes. Nor is it Netflix. Nor is it IMDB. It’s R A N C I D T O M A T I L L O S. Very different!
 
-## Set Up
-1.  Fork this repo
-2.  Clone **and rename** this repo: `git clone [remote-address] [new-name]`  
-   For example: `git clone git@github.com:turingschool-examples/rancid-tomatillos-starter.git rancid-tomatillos`
-4.  `cd` into the directory
-5.  Install necessary dependencies with `npm install`
-6.  Run your React app with `npm start`
-7.  Go to `http://localhost:3000/` and you should see a page with some starter elements
-8.  Enter `control + c` in your terminal to stop running the React app at any time
-9. To run Cypress tests, use `npx cypress open`
+## Getting Started
+
+
+### Installing
+
+1. Clone this repo
+    ```
+   git clone [remote-address] [new-name]
+   ```
+2.  Install necessary dependencies and run
+      ```
+      npm install
+      npm start
+      ```
+
+
+**Insert photo here**
+
+## Running the tests
+
+End-to-End testing done through Cypress
+
+To run testing suite:
+```
+npm run cypress
+```
+
+### Break down into end-to-end tests
+
+These test were designed to follow a user flow or an interaction the user would have with the application.</br>
+Example:
+* Loading the page
+* Interacting with the upvote and downvote buttons
+* Changing views by selecting a poster
+* Returning to the main page with the home button
+
+### Accessibility
+
+Tested using the Lighthouse Chrome Extension
+
+## Deployment
+
+This application is delpoyed using Vercel. </br>
+[Application Demo](https://rancid-tomatillos-gnnykvn1s-kyle-delaneys-projects-5dfcda80.vercel.app/)
+
+## Built With
+
+* [React](https://react.dev/) - The web framework used
+* [Cypress](https://docs.cypress.io/app/get-started/why-cypress) - Testing tool
+* [React Router](https://reactrouter.com/en/main) - Used for client side routing
+
+
+## Contributors
+
+* **Kyle Delaney** -  [LinkedIn](https://www.linkedin.com/in/kylehamptondelaney/)
+* **Renee Messersmith** -  [LinkedIn](https://www.linkedin.com/in/reneemessersmith/)
