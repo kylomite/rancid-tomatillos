@@ -64,19 +64,19 @@ function App() {
   };
 
   // searching function
-  // function searchMovieList(event) {
-  //   const search = event.target.value
-  //   setMovieSearch(search);
-  //   // ^ here we are updating the search state
-  //   if (search === "") {
-  //     setPosters(allPosters)
-  //   } else {
-  //     const filteredMovies = allPosters.filter(poster => {
-  //       return poster.title.toLowerCase().includes(search.toLowerCase())
-  //     })
-  //     setPosters(filteredMovies)
-  //   }   
-  // };
+  function searchMovieList(event) {
+    const search = event.target.value
+    setMovieSearch(search);
+    // ^ here we are updating the search state
+    if (search === "") {
+      setPosters(allPosters)
+    } else {
+      const filteredMovies = allPosters.filter(poster => {
+        return poster.title.toLowerCase().includes(search.toLowerCase())
+      })
+      setPosters(filteredMovies)
+    }   
+  };
 
 
 
