@@ -24,7 +24,6 @@ const MoviePoster = ({
       <div className="vote-bar">
         <button className="upvote-button"
         onClick={()=> changeVoteCountData(id, "up")}> 
-          {/* <img src={upvote} alt="upvote"/>  */}
           <img src={tomato} alt="Upvote Tomato"></img>
         </button>
         <div className="vote-count">{vote_count}</div>
