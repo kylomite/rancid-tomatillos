@@ -26,7 +26,7 @@
 ## About this project
 * Rancid Tomatillos is a movie review aggregator. Its primary functionality is to display a collection of popular movies with their title, genres, and synopis. This app includes voting functionality allowing users to upvore or downvote any given movie on the list, providing other users with an overall score that represents the general consensus about a film. 
 * This is a front end application build to utilize and update a preexisting backend which makes use of [TMDB api](https://developer.themoviedb.org/docs/getting-started).
-* This application is deployed using vercel, you can visit the currently deployed page [using this link](https://rancid-tomatillos-g4g9dz58d-kyle-delaneys-projects-5dfcda80.vercel.app/).
+* This application is deployed using vercel, you can visit the currently deployed page [using this link](https://rancid-tomatillos-k5tx4rplz-kyle-delaneys-projects-5dfcda80.vercel.app/).
 
 **Insert photo here**
 
