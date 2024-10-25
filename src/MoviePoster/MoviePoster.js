@@ -1,7 +1,7 @@
 import './MoviePoster.css';
 import tomato from "../icons/tomato.png";
 import splat from "../icons/splat.png";
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const MoviePoster = ({ 
   id, 
