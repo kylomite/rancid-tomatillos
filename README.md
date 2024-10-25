@@ -73,7 +73,7 @@
 
 ### end-to-end testing
 
-* These test were designed to mimick common user flows throughout the application
+* These test were designed to mimic common user flows throughout the application
 </br>
 
 #### Examples:
@@ -88,7 +88,7 @@
 ## Accessibility
 
 * This application utilizes accessible design with semantic HTML tags. This features allows for tabbable, screen-reader friendly content.
-* The application uses high contrast visuals along with animations to increase pointer focus for visualy impaired users.
+* The application uses high contrast visuals along with animations to increase pointer focus for visually impaired users.
 * The application uses the Chrome Dev Tools Lighthouse feature to test accessibility achieving a 100% score
 ![Rancid Tomatillos Page Accessibility Score](/read_me_Content/image.png)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -121,5 +121,3 @@
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [Cypress]: https://img.shields.io/badge/Cypress-20232A?style=for-the-badge&logo=cypress&logoColor=50c694
 [React_Router]: https://img.shields.io/badge/React_Router-20232A?style=for-the-badge&logo=react-router&logoColor=#ffffff
-
-[kyle_pic]: https://media.licdn.com/dms/image/v2/D4E03AQGp6EiUDBP-0Q/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1724335224935?e=1735171200&v=beta&t=UodzNOsspYW_O9ZdmoqgkwnGf0UEvIlrBUnjMVHSM0A
