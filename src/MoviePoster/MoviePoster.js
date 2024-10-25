@@ -1,7 +1,7 @@
 import './MoviePoster.css';
 import upvote from "../icons/upvote.png";
 import downvote from "../icons/downvote.png";
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const MoviePoster = ({ 
   id, 

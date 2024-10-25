@@ -7,10 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
   const [posters, setPosters] = useState([]);
   const [allPosters, setAllPosters] = useState([]);
-  // ^ Used to keep hold of the original fetched state
-  // for reloading the all posters when search bar is cleared
   const [selectedMovie, setSelectedMovie] = useState(null);
-  // live search
   const [movieSearch, setMovieSearch] = useState("");
 
   useEffect( () => {
@@ -43,29 +40,24 @@ function App() {
         });
       });
     })
-    .catch(error => alert("Oops something went wrong... Try again later"));
+    .catch(() => alert("Oops something went wrong... Try again later"));
   };
 
   function showMovieDetails(movie) {
-    console.log(movie)
+
     fetch(`https://rancid-tomatillos-api-cc6f59111a05.herokuapp.com/api/v1/movies/${movie.id}`)
     .then(response => response.json())
     .then(specificMovieDetails => setSelectedMovie(specificMovieDetails))
     .catch(() => alert("Oops something went wrong... Try again later"));
-    console.log("showMovieDetails CLICK!")
   };
 
   function showMoviePosters() {
-    console.log("showMoviePosters CLICK!")
     setSelectedMovie(null);
   };
 
-  // searching function
   function searchMovieList(event) {
-    // event.preventDefault()
     const search = event.target.value
     setMovieSearch(search);
-    // ^ here we are updating the search state
     if (search === "") {
       setPosters(allPosters)
     } else {
