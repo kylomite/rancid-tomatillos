@@ -1,6 +1,6 @@
 import './MovieDetails.css';
 import homeIcon from '../icons/home.png';
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function MovieDetails({ movie, onBackButton }) {
 
