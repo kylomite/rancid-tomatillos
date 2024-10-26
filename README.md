@@ -1,6 +1,8 @@
 <a id="readme-top"></a>
 <h1 align='center'> Rancid Tomatillos </h1>
-
+<section align='center'>
+  <img src='https://github.com/user-attachments/assets/8b7b0cc0-1627-4895-be99-552bba4a40f2' alt='gif of app functionality'>
+</section>
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -28,7 +30,7 @@
 * This is a front end application build to utilize and update a preexisting backend which makes use of [TMDB api](https://developer.themoviedb.org/docs/getting-started).
 * This application is deployed using vercel, you can visit the currently deployed page [using this link](https://rancid-tomatillos-k5tx4rplz-kyle-delaneys-projects-5dfcda80.vercel.app/).
 
-**Insert photo here**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
